@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Box Breathing Exercise</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body class="exercise-body">
+    <div class="total-time">
+        <span id="totalTimeCounter">00:00</span>
+    </div>
+    
+    <div class="container exercise-container">
+        <div class="phase-name" id="phaseName">Inhale</div>
+        
+        <div class="box-container">
+            <div class="breathing-box">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+                <div class="box-line horizontal top"></div>
+                <div class="box-line horizontal bottom"></div>
+                <div class="box-line vertical left"></div>
+                <div class="box-line vertical right"></div>
+                <div id="breathCircle" class="breath-circle"></div>
+            </div>
+        </div>
+        
+        <div class="phase-timer" id="phaseTimer">4</div>
+        
+        <button id="endButton" class="end-button">End Exercise</button>
+    </div>
+    
+    <script src="js/animation.js"></script>
+    <script>
+        // Check if service worker is already registered
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => {
+                    console.log('ServiceWorker registration successful in exercise page');
+                })
+                .catch(error => {
+                    console.log('ServiceWorker registration failed in exercise page: ', error);
+                });
+        }
+    </script>
+</body>
+</html>
